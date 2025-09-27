@@ -152,21 +152,21 @@ const Blog = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <section className={styles.newsletter}>
+        <div className={styles.newsletterContent}>
+          <h2 className={styles.newsletterTitle}>
             Stay Updated
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className={styles.newsletterSubtitle}>
             Subscribe to our newsletter and never miss the latest insights, tutorials, and industry updates.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <div className={styles.newsletterForm}>
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+              className={styles.newsletterInput}
             />
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl">
+            <button className={styles.newsletterButton}>
               Subscribe
             </button>
           </div>

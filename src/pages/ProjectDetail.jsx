@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Github, Calendar, User, Tag, CheckCircle, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, Calendar, User, Tag, CheckCircle, ArrowRight, Brain, Sparkles, Cpu, Zap, Star, Rocket } from 'lucide-react';
 import { projects } from '../data/data';
 import styles from './ProjectDetail.module.css';
 
@@ -28,18 +28,46 @@ const ProjectDetail = () => {
     <div className={styles.projectDetail}>
       {/* Hero Section */}
       <section className={styles.hero}>
+        {/* Animated Background Elements */}
+        <div className={styles.heroBackground}>
+          <div className={styles.floatingOrbs}>
+            <div className={`${styles.orb} ${styles.orb1}`}></div>
+            <div className={`${styles.orb} ${styles.orb2}`}></div>
+            <div className={`${styles.orb} ${styles.orb3}`}></div>
+            <div className={`${styles.orb} ${styles.orb4}`}></div>
+          </div>
+          <div className={styles.neuralNetwork}>
+            <div className={styles.neuralNode}></div>
+            <div className={styles.neuralNode}></div>
+            <div className={styles.neuralNode}></div>
+            <div className={styles.neuralNode}></div>
+            <div className={styles.neuralNode}></div>
+            <div className={styles.neuralNode}></div>
+          </div>
+          <div className={styles.particleField}>
+            {[...Array(30)].map((_, i) => (
+              <div key={i} className={styles.particle}></div>
+            ))}
+          </div>
+        </div>
+        
         <div className={styles.heroContent}>
           <div className={styles.heroGrid}>
             <div className={styles.heroInfo}>
-              <div className={styles.projectCategory}>
-                {project.category}
+              <div className={styles.projectBadge}>
+                <Cpu className={styles.projectBadgeIcon} />
+                <span>{project.category}</span>
+                <Sparkles className={styles.projectBadgeSparkle} />
               </div>
+              
               <h1 className={styles.projectTitle}>
                 {project.name}
               </h1>
+              
               <p className={styles.projectDescription}>
                 {project.longDescription}
               </p>
+              
               <div className={styles.projectMeta}>
                 <div className={styles.metaItem}>
                   <User className={styles.metaIcon} />
@@ -54,25 +82,34 @@ const ProjectDetail = () => {
                   <span>{project.technologies.length} Technologies</span>
                 </div>
               </div>
+              
               <div className={styles.projectActions}>
                 <a
                   href={project.liveUrl}
                   className={`${styles.projectButton} ${styles.projectButtonPrimary}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  View Live Site <ExternalLink className={styles.projectButtonIcon} />
+                  <Rocket className={styles.projectButtonIcon} />
+                  View Live Site
+                  <ExternalLink className={styles.projectButtonIcon} />
                 </a>
                 <a
                   href={project.githubUrl}
                   className={`${styles.projectButton} ${styles.projectButtonSecondary}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Github className={styles.projectButtonIcon} />
                   View Code
                 </a>
               </div>
             </div>
+            
             <div className={styles.heroImage}>
               <div className={styles.heroImageContainer}>
                 <div className={styles.heroImageText}>{project.name.charAt(0)}</div>
+                <div className={styles.heroImageGlow}></div>
               </div>
             </div>
           </div>

@@ -80,7 +80,7 @@ const Portfolio = () => {
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={`${styles.filterButton} ${
-                  selectedCategory === category ? styles.filterButtonActive : ''
+                  selectedCategory === category ? styles.active : ''
                 }`}
               >
                 {category}
@@ -91,26 +91,13 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className={styles.portfolio}>
-        <div className={styles.portfolioContent}>
-          <div className={styles.portfolioGrid}>
+      <section className={styles.projects}>
+        <div className={styles.projectsContent}>
+          <div className={styles.projectsGrid}>
             {filteredProjects.map((project) => (
               <div key={project.id} className={styles.projectCard}>
                 <div className={styles.projectImage}>
                   <div className={styles.projectImageText}>{project.name.charAt(0)}</div>
-                  <div className={styles.projectOverlay}>
-                    <div className={styles.projectOverlayButtons}>
-                      <Link
-                        to={`/portfolio/${project.id}`}
-                        className={`${styles.overlayButton} ${styles.overlayButtonPrimary}`}
-                      >
-                        View Details <ArrowRight className={styles.overlayButtonIcon} />
-                      </Link>
-                      <button className={`${styles.overlayButton} ${styles.overlayButtonSecondary}`}>
-                        <ExternalLink className={styles.overlayButtonIcon} />
-                      </button>
-                    </div>
-                  </div>
                 </div>
                 <div className={styles.projectContent}>
                   <div className={styles.projectCategory}>
@@ -118,6 +105,21 @@ const Portfolio = () => {
                   </div>
                   <h3 className={styles.projectTitle}>{project.name}</h3>
                   <p className={styles.projectDescription}>{project.description}</p>
+                  
+                  <div className={styles.projectMeta}>
+                    <div className={styles.metaItem}>
+                      <User className={styles.metaIcon} />
+                      <span>{project.client}</span>
+                    </div>
+                    <div className={styles.metaItem}>
+                      <Calendar className={styles.metaIcon} />
+                      <span>{project.year}</span>
+                    </div>
+                    <div className={styles.metaItem}>
+                      <Tag className={styles.metaIcon} />
+                      <span>{project.technologies.length} Technologies</span>
+                    </div>
+                  </div>
                   
                   <div className={styles.projectTechnologies}>
                     {project.technologies.slice(0, 3).map((tech) => (
@@ -132,12 +134,23 @@ const Portfolio = () => {
                     )}
                   </div>
 
-                  <Link
-                    to={`/portfolio/${project.id}`}
-                    className={styles.projectLink}
-                  >
-                    View Project <ArrowRight className={styles.projectLinkIcon} />
-                  </Link>
+                  <div className={styles.projectActions}>
+                    <Link
+                      to={`/portfolio/${project.id}`}
+                      className={`${styles.projectButton} ${styles.projectButtonPrimary}`}
+                    >
+                      View Project <ArrowRight className={styles.projectButtonIcon} />
+                    </Link>
+                    <a
+                      href={project.liveUrl}
+                      className={`${styles.projectButton} ${styles.projectButtonSecondary}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className={styles.projectButtonIcon} />
+                      Live Site
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}

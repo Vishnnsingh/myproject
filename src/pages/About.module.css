@@ -644,6 +644,15 @@
   z-index: 1;
 }
 
+/* Stats Section Specific Styles */
+.stats .sectionTitle {
+  color: #111827;
+}
+
+.stats .sectionSubtitle {
+  color: #4b5563;
+}
+
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -772,7 +781,10 @@
 }
 
 .teamImageText {
-  /* Placeholder for team member initial */
+  /* Team member initial styling */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .teamName {
@@ -843,6 +855,15 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
+}
+
+/* Why Choose Us Section Specific Styles */
+.whyChooseUs .sectionTitle {
+  color: #111827;
+}
+
+.whyChooseUs .sectionSubtitle {
+  color: #4b5563;
 }
 
 .whyChooseUsGrid {

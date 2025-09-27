@@ -606,6 +606,15 @@
   z-index: 1;
 }
 
+/* Process Section Specific Styles */
+.process .sectionTitle {
+  color: #111827;
+}
+
+.process .sectionSubtitle {
+  color: #4b5563;
+}
+
 .processGrid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
